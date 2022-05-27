@@ -19,6 +19,14 @@ public class Movie implements Serializable {
 
     private String lineUp;
 
+    @ManyToOne
+    @JoinColumn(name = "genId")
+    private Genre genre;
+
+    @ManyToOne
+    @JoinColumn(name = "classId")
+    private Classification classification;
+
     public Long getId() {
         return id;
     }
@@ -57,5 +65,21 @@ public class Movie implements Serializable {
 
     public void setLineUp(String lineUp) {
         this.lineUp = lineUp;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    public Classification getClassification() {
+        return classification;
+    }
+
+    public void setClassification(Classification classification) {
+        this.classification = classification;
     }
 }
