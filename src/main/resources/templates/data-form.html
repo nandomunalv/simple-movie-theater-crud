@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Good Thymes Virtual Grocery</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="container p-5">
+  <h1 style="text-decoration: underline">Hello, from Data Form of Movie</h1>
+
+  <br>
+
+  <div class="p-5">
+    <form action="#" th:action="@{/movies/update}" method="post" th:object="${movieSelected}">
+      <input type="hidden" th:field="*{id}" />
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <label for="movieName" class="form-label">Movie Name</label>
+          <input type="text" class="form-control" id="movieName" th:field="*{name}">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="movieDirector" class="form-label">Director</label>
+          <input type="text" class="form-control" id="movieDirector" th:field="*{director}">
+        </div>
+        <div class="col-md-6">
+          <label for="movieLineUp" class="form-label">Line Up</label>
+          <input type="text" class="form-control" id="movieLineUp" th:field="*{lineUp}">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <label for="movieDescription" class="form-label">Description</label>
+          <textarea class="form-control" id="movieDescription" rows="3" th:field="*{description}"></textarea>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="movieDescription" class="form-label">Genre</label>
+          <select class="form-select" th:field="*{genre.id}">
+            <option th:each="gen: ${listOfGenre}"
+                    th:text="${gen.description}"
+                    th:value="${gen.id}">
+            </option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="movieDescription" class="form-label">Classification</label>
+          <select class="form-select" th:field="*{classification.id}">
+            <option th:each="classif: ${listOfClassification}"
+                    th:text="${classif.description}"
+                    th:value="${classif.id}">
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Actualizar</button>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+</html>
