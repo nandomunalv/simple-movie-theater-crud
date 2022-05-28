@@ -82,4 +82,17 @@ public class Movie implements Serializable {
     public void setClassification(Classification classification) {
         this.classification = classification;
     }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", director='" + director + '\'' +
+                ", lineUp='" + lineUp + '\'' +
+                ", genre=" + genre.getDescription() +
+                ", classification=" + classification.getDescription() +
+                '}';
+    }
 }

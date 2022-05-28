@@ -16,14 +16,19 @@
             <th scope="col">Nombre</th>
             <th scope="col">Genero</th>
             <th scope="col">Clasificación</th>
+            <th scope="col">Opciones</th>
         </tr>
         </thead>
         <tbody class="table-group-divider">
-        <tr th:each="movie: ${movies}">
+        <tr th:each="movie: ${listMovie}">
             <th scope="row" th:text="${movie.id}"></th>
             <td th:text="${movie.name}"></td>
             <td th:text="${movie.genre.description}"></td>
             <td th:text="${movie.classification.description}"></td>
+            <td>
+                <a th:href="@{/movies/data-form/{id}(id=${movie.id})}" class="btn btn-primary">Editar</a>
+                <a class="btn btn-light">Eliminar</a>
+            </td>
         </tr>
         </tbody>
     </table>
