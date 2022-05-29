@@ -39,6 +39,14 @@ public class MovieController {
         model.addAttribute("listMovie", movieService.getMovies());
         return "movies";
     }
+    @GetMapping("/movies/data-form")
+    public String goToDataFormCreate(Model model) {
+        var movie = new Movie();
+        model.addAttribute("movieSelected", movie);
+        model.addAttribute("listOfGenre", genreRepository.findAll());
+        model.addAttribute("listOfClassification", classificationRepository.findAll());
+        return "data-form";
+    }
 
     @GetMapping("/movies/data-form/{id}")
     public String goToDataForm(@PathVariable Long id, Model model) {
@@ -55,6 +63,12 @@ public class MovieController {
         log.info(movieSelected.toString());
         movieService.createOrUpdateMovie(movieSelected);
 
+        return "redirect:/movies";
+    }
+
+    @GetMapping("/movies/delete/{id}")
+    public String deleteMovie(@PathVariable Long id) {
+        movieService.deleteMovie(id);
         return "redirect:/movies";
     }
 }

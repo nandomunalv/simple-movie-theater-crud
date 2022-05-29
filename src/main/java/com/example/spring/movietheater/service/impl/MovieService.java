@@ -32,4 +32,9 @@ public class MovieService implements IMovieService {
     public Movie createOrUpdateMovie(Movie movie) {
         return movieRepository.save(movie);
     }
+
+    @Override
+    public void deleteMovie(Long id) {
+        movieRepository.deleteById(id);
+    }
 }

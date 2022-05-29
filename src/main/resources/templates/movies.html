@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Good Thymes Virtual Grocery</title>
+    <title>List of Movie</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -9,6 +9,16 @@
 <body>
 
 <div class="container p-5">
+    <h1 style="text-decoration: underline">Hello, from List of Movie</h1>
+
+    <br>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <a th:href="@{/movies/data-form}" class="btn btn-primary">Agregar Película</a>
+        </div>
+    </div>
+
     <table class="table">
         <thead>
         <tr>
@@ -27,7 +37,7 @@
             <td th:text="${movie.classification.description}"></td>
             <td>
                 <a th:href="@{/movies/data-form/{id}(id=${movie.id})}" class="btn btn-primary">Editar</a>
-                <a class="btn btn-light">Eliminar</a>
+                <a th:href="@{/movies/delete/{id}(id=${movie.id})}" class="btn btn-light">Eliminar</a>
             </td>
         </tr>
         </tbody>
