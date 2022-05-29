@@ -1,7 +1,5 @@
 # Simple movie theater CRUD 
 
----
-
 1. Para poder crear las tablas de la base de datos, solo debes abrir el archi vo de
 propiedades (`application.properties`) y colocar `spring.sql.init.mode=always`.
 
